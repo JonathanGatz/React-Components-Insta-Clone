@@ -10,8 +10,9 @@
 import React, {useState} from 'react';
 import Posts from './components/Posts/Posts.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
-import './App.css';
 import dummyData from './dummy-data.js';
+import './App.css';
+
 
 
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
@@ -20,7 +21,7 @@ import dummyData from './dummy-data.js';
 const App = () => {
 
 const [posts, setPosts] = useState(dummyData);
-const [searchBar, setSearchBar] = useState(SearchBar)
+//const [searchBar, setSearchBar] = useState(SearchBar)
 const likePost = postId => {
 
 //**********************************************************
@@ -37,11 +38,11 @@ const likePost = postId => {
         - otherwise just return the post object unchanged.
      */
 
-     setPosts(posts.map((obj) => {
-       if(postId == obj.id){
-         obj.likes ++;
+     setPosts(posts.map((myPost) => {
+       if(myPost.id === postId){
+         myPost.likes = myPost.likes+1;
        }
-       return obj;
+       return myPost;
      }));
   };
 
